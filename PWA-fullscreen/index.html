@@ -116,7 +116,7 @@
       var fullscreenDiv = document.createElement('fullscreen-div');
       fullscreenDiv.style.cssText = 'position: fixed; width: 100%; height: 100%; line-height: 100%; color: white; background-color: blue; text-align: center; z-index: 10000;';
       fullscreenDiv.innerHTML += '<br>TAP TO GO FULLSCREEN';
-      fullscreenDiv.onclick = function () { canvas.requestFullscreen(); };
+      fullscreenDiv.onclick = function () { canvas.requestFullscreen(); screen.orientation.lock("landscape"); };
       document.body.appendChild(fullscreenDiv);
     }
 
