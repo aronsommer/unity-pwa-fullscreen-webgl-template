@@ -111,13 +111,18 @@
       };
       document.body.appendChild(script);
 
-  // If mobile add clickable div to enter fullscreen
-    if (IsMobile()) {
+  // If Android add clickable div to enter fullscreen
+    // requestFullscreen() currently not working on iOS
+    if (IsAndroid()) {
       var fullscreenDiv = document.createElement('fullscreen-div');
       fullscreenDiv.style.cssText = 'position: fixed; width: 100%; height: 100%; line-height: 100%; color: white; background-color: blue; text-align: center; z-index: 10000;';
       fullscreenDiv.innerHTML += '<br>TAP TO GO FULLSCREEN';
       fullscreenDiv.onclick = function () { canvas.requestFullscreen(); screen.orientation.lock("landscape"); };
       document.body.appendChild(fullscreenDiv);
+    }
+
+    function IsAndroid() {
+      return (/Android/i.test(navigator.userAgent))
     }
 
     function IsMobile() {
